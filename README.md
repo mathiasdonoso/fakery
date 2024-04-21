@@ -2,12 +2,12 @@
 Dummy HTTP server generator
 
 ## TOC
-* [The Problem](#-The-Problem)
-* [The Solution](#-The-Solution)
-* [Installation](#-Installation)
-* [Getting Started](#-Getting-Started)
-* [API](#-API)
-* [Contributors](#-Contributors)
+* [The Problem](#The-Problem)
+* [The Solution](#The-Solution)
+* [Installation](#Installation)
+* [Getting Started](#Getting-Started)
+* [API](#API)
+* [Contributors](#Contributors)
 
 ## The Problem
 Often, when developing or testing applications, you need to interact with services that provide specific responses. However, directly using these services might not be feasible due to downtime, additional costs, or other constraints.
