@@ -1,0 +1,52 @@
+[
+  {
+    "request": {
+      "url": "/path/to/something",
+      "post": "this is some post data in textual format",
+      "headers": {
+         "authorization": "Basic usernamez:passwordinBase64"
+      },
+      "method": "POST"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "latency": 1000,
+      "body": "Your request was successfully processed!"
+    }
+  },
+  {
+    "request": {
+      "url": "/path/to/a/json/response",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "method": "GET"
+    },
+    "response": {
+      "status": 201,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": "{\"message\": \"Item created\", \"item\": {\"id\": \"1\", \"name\": \"Ball\", \"price\": 9.99}}"
+    }
+  },
+  {
+    "request": {
+      "url": "/path/to/thing",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "post": "this is some post data in textual format",
+      "method": "POST"
+    },
+    "response": {
+      "status": 304,
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  }
+]
