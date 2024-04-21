@@ -20,8 +20,6 @@ func CreateNewServer(port string, config *fakeryServerConfig) *fakeryServer {
 }
 
 func (s *fakeryServer) Start() {
-	log.Printf("Starting server at port %s\n", s.port)
-
 	router := http.NewServeMux()
 
 	for _, e := range s.config.Endpoints {
@@ -33,23 +31,22 @@ func (s *fakeryServer) Start() {
 }
 
 func ConfigureEndpoint(router *http.ServeMux, endpoint FakeryEndpoint) {
-	req := endpoint.Request
-	res := endpoint.Response
+	log.Printf("Creating endpoint %s %s\n", endpoint.Request.Method, endpoint.Request.Url)
 
-	pattern := fmt.Sprintf("%s %s", req.Method, req.Url)
+	pattern := fmt.Sprintf("%s %s", endpoint.Request.Method, endpoint.Request.Url)
 	router.HandleFunc(pattern, func(w http.ResponseWriter, r *http.Request) {
-		for k, v := range res.Headers {
+		w.WriteHeader(endpoint.Response.Status)
+
+		for k, v := range endpoint.Response.Headers {
 			w.Header().Set(k, v)
 		}
 
-		w.WriteHeader(res.Status)
-
-		if res.Latency != 0 {
-			time.Sleep(time.Duration(res.Latency) * time.Millisecond)
+		if endpoint.Response.Latency != 0 {
+			time.Sleep(time.Duration(endpoint.Response.Latency) * time.Millisecond)
 		}
 
-		if res.Body != "" {
-			w.Write([]byte(res.Body))
+		if endpoint.Response.Body != "" {
+			w.Write([]byte(endpoint.Response.Body))
 		}
 	})
 }
