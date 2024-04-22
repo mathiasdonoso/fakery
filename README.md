@@ -1,6 +1,8 @@
 # fakery
 Dummy HTTP server generator
 
+## Warning: This is still in WIP
+
 ## TOC
 * [The Problem](#The-Problem)
 * [The Solution](#The-Solution)
