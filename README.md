@@ -8,6 +8,7 @@ This project is still in WIP
 * [The Problem](#The-Problem)
 * [The Solution](#The-Solution)
 * [Installation](#Installation)
+* [Configuration](#Configuration)
 * [Getting Started](#Getting-Started)
 * [API](#API)
 * [Contributors](#Contributors)
